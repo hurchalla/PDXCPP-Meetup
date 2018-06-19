@@ -1,12 +1,5 @@
 
 #if defined(NDEBUG)
-#  define PBC_INVARIANTS_CHECK(METHOD_NAME) ((void)0)
-#else
-#  define PBC_INVARIANTS_CHECK(METHOD_NAME) METHOD_NAME()
-#endif
-
-
-#if defined(NDEBUG)
 #  define PBC_INVARIANTS_GUARD(METHOD_NAME) ((void)0)
 #else
 #  define PBC_INVARIANTS_GUARD(METHOD_NAME) \

@@ -1,6 +1,5 @@
 #include <assert.h>
 
-
 class Widget
 {
 public:

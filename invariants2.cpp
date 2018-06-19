@@ -3,19 +3,19 @@
 
 // in practice we'd move this class into its own header file
 template <typename T>
-class InvariantGuard
+class InvariantsGuard
 {
 public:
-     explicit InvariantGuard(T& obj) : obj_(obj)
+     explicit InvariantsGuard(T& obj) : obj_(obj)
      {
        obj_.CheckInvariants();
      }
-     ~InvariantGuard()
+     ~InvariantsGuard()
      {
        obj_.CheckInvariants();
      }
-     InvariantGuard(const InvariantGuard&) = delete;
-     InvariantGuard& operator=(const InvariantGuard&) = delete;
+     InvariantsGuard(const InvariantsGuard&) = delete;
+     InvariantsGuard& operator=(const InvariantsGuard&) = delete;
 private:
      T& obj_;
 };
@@ -26,7 +26,7 @@ class Widget
 public:
     void foo()
     {
-      InvariantGuard<Widget>(*this);
+      InvariantsGuard<Widget>(*this);
       // ...
       // function body
       // ...
@@ -34,14 +34,14 @@ public:
 
     void bar()
     {
-      InvariantGuard<Widget>(*this);
+      InvariantsGuard<Widget>(*this);
       // ...
       // function body
       // ...
     }
 
 private:
-    friend InvariantGuard<Widget>;  // !!
+    friend InvariantsGuard<Widget>;  // !!
     void CheckInvariants()
     {
       assert(1 + 1 == 2);

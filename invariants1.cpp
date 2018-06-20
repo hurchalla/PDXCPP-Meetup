@@ -5,34 +5,34 @@ class Widget
 public:
     void foo()
     {
-      CheckInvariants();
+      checkInvariants();
       try {
          // ...
          // foo() function body
          // ...
       } catch (...) {
-         CheckInvariants();
+         checkInvariants();
          throw;
       }
-      CheckInvariants();
+      checkInvariants();
     }
 
     void bar()
     {
-      CheckInvariants();
+      checkInvariants();
       try {
          // ...
          // bar() function body
          // ...
       } catch (...) {
-         CheckInvariants();
+         checkInvariants();
          throw;
       }
-      CheckInvariants();
+      checkInvariants();
     }
 
 private:
-    void CheckInvariants()
+    void checkInvariants()
     {
       assert(1 + 1 == 2);
       assert(2 * 2 == 4);

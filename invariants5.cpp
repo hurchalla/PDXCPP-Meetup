@@ -27,21 +27,21 @@ class Widget
 public:
     void foo()
     {
-      INVARIANTS_GUARD(CheckInvariants);
+      INVARIANTS_GUARD(checkInvariants);
       // ...
       // foo() function body
       // ...
     }
     void bar()
     {
-      INVARIANTS_GUARD(CheckInvariants);
+      INVARIANTS_GUARD(checkInvariants);
       // ...
       // bar() function body
       // ...
     }
 
 private:
-    void CheckInvariants()
+    void checkInvariants()
     {
       assert(1 + 1 == 2);
       assert(2 * 2 == 4);

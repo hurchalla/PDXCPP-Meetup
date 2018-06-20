@@ -8,11 +8,11 @@ class InvariantsGuard
 public:
      explicit InvariantsGuard(T& obj) : obj_(obj)
      {
-       obj_.CheckInvariants();
+       obj_.checkInvariants();
      }
      ~InvariantsGuard()
      {
-       obj_.CheckInvariants();
+       obj_.checkInvariants();
      }
      InvariantsGuard(const InvariantsGuard&) = delete;
      InvariantsGuard& operator=(const InvariantsGuard&) = delete;
@@ -42,7 +42,7 @@ public:
 
 private:
     friend InvariantsGuard<Widget>;  // !!
-    void CheckInvariants()
+    void checkInvariants()
     {
       assert(1 + 1 == 2);
       assert(2 * 2 == 4);

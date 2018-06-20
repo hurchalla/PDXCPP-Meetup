@@ -10,11 +10,11 @@ public:
       public:
           explicit InvariantsGuard(Widget* ptr) : pOuter(ptr)
           {
-              pOuter->CheckInvariants();
+              pOuter->checkInvariants();
           }
           ~InvariantsGuard()
           {
-              pOuter->CheckInvariants();
+              pOuter->checkInvariants();
           }
           InvariantsGuard(const InvariantsGuard&) = delete;
           InvariantsGuard& operator=(const InvariantsGuard&) = delete;
@@ -28,7 +28,7 @@ public:
     }
 
 private:
-    void CheckInvariants()
+    void checkInvariants()
     {
       assert(1 + 1 == 2);
       assert(2 * 2 == 4);

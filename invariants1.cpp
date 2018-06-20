@@ -6,18 +6,28 @@ public:
     void foo()
     {
       CheckInvariants();
-      // ...
-      // function body
-      // ...
+      try {
+         // ...
+         // foo() function body
+         // ...
+      } catch (...) {
+         CheckInvariants();
+         throw;
+      }
       CheckInvariants();
     }
 
     void bar()
     {
       CheckInvariants();
-      // ...
-      // function body
-      // ...
+      try {
+         // ...
+         // bar() function body
+         // ...
+      } catch (...) {
+         CheckInvariants();
+         throw;
+      }
       CheckInvariants();
     }
 

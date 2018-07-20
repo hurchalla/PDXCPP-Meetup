@@ -26,7 +26,7 @@ class Widget
 public:
     void foo()
     {
-      InvariantsGuard<Widget>(*this);
+      InvariantsGuard<Widget> invariantsGuard(*this);
       // ...
       // function body
       // ...
@@ -34,14 +34,14 @@ public:
 
     void bar()
     {
-      InvariantsGuard<Widget>(*this);
+      InvariantsGuard<Widget> invariantsGuard(*this);
       // ...
       // function body
       // ...
     }
 
 private:
-    friend InvariantsGuard<Widget>;  // !!
+    friend class InvariantsGuard<Widget>;  // !!
     void checkInvariants()
     {
       assert(1 + 1 == 2);

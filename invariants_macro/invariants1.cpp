@@ -34,6 +34,7 @@ public:
 private:
     void checkInvariants()
     {
+      // Make sure this is still a good Widget!!
       assert(1 + 1 == 2);
       assert(2 * 2 == 4);
     }

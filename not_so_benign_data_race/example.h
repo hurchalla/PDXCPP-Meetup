@@ -10,7 +10,7 @@ public:
    void processAudio(float* pInput, float const* pOutput, int sampleFrames)    
    {
       if (pNewAudioEffect_ != NULL) {   // *SHARED* data accessed outside lock
-         if (mutex_.try_lock()) {       // But I thoroughly checked- it's ok!!
+         if (mutex_.try_lock()) {       // Bad idea!! See example_with_asm.h
             if (pNewAudioEffect_ != NULL) {
                pExpiredAudioEffect_ = pActiveAudioEffect_;
                pActiveAudioEffect_ = pNewAudioEffect_;
